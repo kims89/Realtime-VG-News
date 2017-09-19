@@ -11,11 +11,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-    #colurdiv {
-      background: #ccc;
-    }
-  </style>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 </head>
 <body>
   <script>
@@ -30,18 +27,15 @@
       }
       $('#newsDiv').html(listNews);
     });
-    var socket = io.connect('http://localhost:4205');
+    var socket = io.connect('http://localhost:4206');
     socket.on('notification', function (data) {
       if (data[0].id != id) {
-        var htmlDiv = "<div id='colurdiv'><dl><dt><a href='" + data[0].persistentUrl + "'>" + data[0].title +
+        var htmlDiv = "<div class='bg-success text-white animated zoomIn'><dl><dt><a href='" + data[0].persistentUrl + "'>" + data[0].title +
           "</a></dt><dd>" + data[0].preamble +
           "</dd></dl></div>";
         $("#newsDiv").prepend(htmlDiv);
       }
       id = data[0].id;
-    });
-    $("#colurdiv").animate({
-      backgroundColor: "#ff0000"
     });
   </script>
   <div class="container">

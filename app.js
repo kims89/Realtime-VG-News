@@ -24,6 +24,6 @@ io.sockets.on('connection', function (socket) {
   });
 });
 
-app.use('/static', express.static('node_modules'))
+app.use('/static', express.static('node_modules'));
 
-server.listen(4205);
+server.listen(4206);
