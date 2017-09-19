@@ -20,7 +20,6 @@ io.sockets.on('connection', function (socket) {
   fs.watch("news.json", function (event, fileName) {
     jf.readFile('news.json', function (err, data) {
       var data = data;
-      console.log('sent');
       socket.volatile.emit('notification', data);
     });
   });
