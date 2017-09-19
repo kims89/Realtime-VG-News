@@ -5,7 +5,6 @@ var io = require('socket.io')(server);
 var jf = require('jsonfile'); //jsonfile module
 var fs = require('fs'); //require file system
 
-
 app.get('/listNews', function (req, res) {
   fs.readFile(__dirname + "/" + "news.json", 'utf8', function (err, data) {
     res.end(data);
