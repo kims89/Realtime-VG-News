@@ -15,8 +15,10 @@
 </head>
 
 <body>
+  
   <script>
     var idB = "";
+    var oldid = "";
     $.getJSON('/listNews', function (data) {
       var listNews = "";
       idB = data[0].id;
@@ -32,13 +34,14 @@
       console.log(idB);
       console.log("First" + data[0].id);
       console.log("Secound" + data[1].id);
-      if (data[0].id !== idB && data[1].id !== idB) {
+      if (data[0].id !== idB && data[0].id !== oldid) {
         console.log("Truffet");
-        var htmlDiv = "<div class='bg-success text-white animated zoomIn'><dl><dt><a href='" + data[0].persistentUrl +
+        var htmlDiv = "<div class='animated zoomIn'><dl><dt><a href='" + data[0].persistentUrl +
           "'>" + data[0].title +
           "</a></dt><dd>" + data[0].preamble +
           "</dd></dl></div>";
         $("#newsDiv").prepend(htmlDiv);
+        oldid=idB;
         idB = data[0].id;
       } else {
         console.log("BOM!");
