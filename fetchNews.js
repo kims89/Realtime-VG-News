@@ -5,6 +5,7 @@ var cron = require('node-cron');
 
 var web = "http://www.vg.no/siste/?format=json&limit=20&size=100";
 var oldFilesRefID = "";
+
 cron.schedule('* * * * *', function () {
 
   getJSON(web, function (error, response) {
