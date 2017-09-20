@@ -5,20 +5,19 @@ var cron = require('node-cron');
 
 var web = "http://www.vg.no/siste/?format=json&limit=20&size=100";
 var oldFilesRefID = "";
-cron.schedule('* * * * *', function() {
-  console.log("Runned");
-  getJSON(web, function(error, response) {
+cron.schedule('* * * * *', function () {
+
+  getJSON(web, function (error, response) {
     var file = 'news.json';
     console.log("Old id: " + oldFilesRefID);
     if (oldFilesRefID != response[0].id) {
-      console.log("if" + 1);
       oldFilesRefID = response[0].id;
       olderFilesRefID = response[1].id;
-      jsonfile.writeFile(file, response, function(err) {
-
+      jsonfile.writeFile(file, response, function (err) {
       });
     } else {
-      console.log("Else happend");
+      //else happend
     }
   });
+  
 });
