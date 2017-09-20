@@ -12,4 +12,7 @@ VG realtime (+- 1 min) nyheter som henter api data gjennom VGs json-api. Denne h
 
 <h3>Install</h3>
 - Installer Node.js
-- last ned bibloteket ()
+- last ned bibloteket (cmd: git clone https://github.com/kims89/Realtime-VG-News.git)
+- Installer pakken. (cmd: npm install)
+- start alle tjenestene - app og fetchNews (cmd: npm start)
+- Åpne nettleseren å gå til http://localhost:4206. 
